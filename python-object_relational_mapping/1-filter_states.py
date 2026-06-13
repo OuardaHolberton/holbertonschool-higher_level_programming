@@ -9,7 +9,7 @@ if __name__ == "__main__":
                          db=sys.argv[3], charset="utf8")
     cur = db.cursor()
     cur.execute(
-        "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC"
+        "SELECT * FROM states WHERE LEFT(name, 1) = 'N' ORDER BY id ASC"
     )
     for row in cur.fetchall():
         print(row)
